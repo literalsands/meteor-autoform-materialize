@@ -40,7 +40,7 @@ Template.afFormGroup_materialize.rendered = function() {
     formId = AutoForm.getFormId();
     this.autorun((function(_this) {
         return function() {
-            var value = AutoForm.getFieldValue(_this.data.name, formId);
+            var value;// = AutoForm.getFieldValue(_this.data.name, formId);
             var inputValue = AutoForm.getInputValue(_this.find('input'));
             var type = AutoForm.getInputType(_this.data);
             var placeholder = _this.data.afFieldInputAtts.placeholder;
