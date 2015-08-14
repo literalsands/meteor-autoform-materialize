@@ -1,30 +1,29 @@
 <template name="afArrayField_materialize">
-  <div class="collection">
-    <div class="collection-item">
-      {{afFieldLabelText name=this.atts.name}}
-
-      {{#if afArrayFieldHasLessThanMaximum name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
-        <button type="button" class="btn autoform-add-item" data-autoform-field="{{this.atts.name}}" data-autoform-minCount="{{this.atts.minCount}}" data-autoform-maxCount="{{this.atts.maxCount}}">
-          Add <i class="mdi-content-add"></i>
-        </button>
-      {{/if}}
-    </div>
-    {{#if afFieldIsInvalid name=this.atts.name}}
+  <div class="card-title">
+    {{afFieldLabelText name=this.atts.name}}
+  </div>
+  {{#if afFieldIsInvalid name=this.atts.name}}
+    <div class="collection">
       <div class="collection-item">
         <span class="red-text">{{{afFieldMessage name=this.atts.name}}}</span>
       </div>
-    {{/if}}
-    {{#afEachArrayItem name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
-      <div class="collection-item">
-        {{> afQuickField name=this.name label=false options=afOptionsFromSchema}}
-      </div>
+    </div>
+  {{/if}}
+  {{#afEachArrayItem name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+    <div style="clear: both;">
+      {{> afQuickField name=this.name label=false options=afOptionsFromSchema}}
       {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
-        <div class="collection-item">
-          <button type="button" class="btn autoform-remove-item">
-            Remove <span class="mdi-content-clear"></span>
-          </button>
-        </div>
+        <button type="button" class="btn right autoform-remove-item" style="margin-bottom: 3rem;">
+          Remove <span class="mdi-content-clear"></span>
+        </button>
       {{/if}}
-    {{/afEachArrayItem}}
+    </div>
+  {{/afEachArrayItem}}
+  <div class="card-action">
+  {{#if afArrayFieldHasLessThanMaximum name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+    <button type="button" class="btn autoform-add-item" data-autoform-field="{{this.atts.name}}" data-autoform-minCount="{{this.atts.minCount}}" data-autoform-maxCount="{{this.atts.maxCount}}">
+      Add <i class="mdi-content-add"></i>
+    </button>
+  {{/if}}
   </div>
 </template>
