@@ -24,6 +24,10 @@
     <button type="button" class="btn autoform-add-item" data-autoform-field="{{this.atts.name}}" data-autoform-minCount="{{this.atts.minCount}}" data-autoform-maxCount="{{this.atts.maxCount}}">
       Add <i class="mdi-content-add"></i>
     </button>
+  {{else}}
+    <button type="button" class="btn autoform-add-item" data-autoform-field="{{this.atts.name}}" data-autoform-minCount="{{this.atts.minCount}}" data-autoform-maxCount="{{this.atts.maxCount}}" disabled>
+      Add <i class="mdi-content-add"></i>
+    </button>
   {{/if}}
   </div>
 </template>
